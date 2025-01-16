@@ -1,8 +1,5 @@
-import 'dart:convert';
-
 import 'package:store/helper/api.dart';
 import 'package:store/models/product_model.dart';
-import 'package:http/http.dart' as http;
 
 class CategoryService {
   Future<List<ProductModel>> getCategoryProducts(
