@@ -14,10 +14,14 @@ class ProductModel {
       required this.rating});
 
   factory ProductModel.fromJson(jsonData) {
+    // print("jsonData['price'] type: ${jsonData["price"].runtimeType}");
+    // double ddd = jsonData["price"].toDouble();
+    // print("ddd type: ${ddd.runtimeType}");
+
     return ProductModel(
         id: jsonData["id"],
         title: jsonData["title"],
-        price: jsonData["price"],
+        price: jsonData["price"].toDouble(),
         description: jsonData["description"],
         image: jsonData["image"],
         rating: RatingModel.fromJson(jsonData['rating']));
@@ -34,7 +38,7 @@ class RatingModel {
 
   factory RatingModel.fromJson(jsonData) {
     return RatingModel(
-      rate: jsonData['rate'],
+      rate: jsonData['rate'].toDouble(),
       count: jsonData['count'],
     );
   }
