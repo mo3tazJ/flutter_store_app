@@ -8,11 +8,16 @@ class CategoryService {
       {required String category_name}) async {
     http.Response response = await http.get(
         Uri.parse('https://fakestoreapi.com/products/category/$category_name'));
-    List<dynamic> data = jsonDecode(response.body);
-    List<ProductModel> productsList = [];
-    for (int i = 0; i < data.length; i++) {
-      productsList.add(ProductModel.fromJson(data[i]));
+    int status = response.statusCode;
+    if (status == 200) {
+      List<dynamic> data = jsonDecode(response.body);
+      List<ProductModel> productsList = [];
+      for (int i = 0; i < data.length; i++) {
+        productsList.add(ProductModel.fromJson(data[i]));
+      }
+      return productsList;
+    } else {
+      throw Exception("Status Code Wrong: $status");
     }
-    return productsList;
   }
 }
