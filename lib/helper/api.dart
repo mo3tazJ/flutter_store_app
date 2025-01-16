@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class Api {
@@ -26,7 +26,13 @@ class Api {
       body: body,
       headers: headers,
     );
-    Map<String, dynamic> data = jsonDecode(response.body);
-    return data;
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = jsonDecode(response.body);
+      return data;
+    } else {
+      throw Exception(
+          "Status Code Wrong: ${response.statusCode}, Details: ${jsonDecode(response.body)}");
+    }
   }
 }
