@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
   CustomTextField(
-      {this.hintText,
+      {super.key,
+      this.hintText,
       this.onChanged,
       this.inputType,
       this.obscureText = false});
@@ -24,13 +26,13 @@ class CustomTextField extends StatelessWidget {
             color: Colors.grey.shade400,
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey,
             ),
             borderRadius: BorderRadius.circular(8),
           ),
           border: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.black,
             ),
             borderRadius: BorderRadius.circular(8),

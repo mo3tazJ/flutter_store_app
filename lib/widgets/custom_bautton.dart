@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomButon extends StatelessWidget {
   CustomButon(
-      {this.onTap,
+      {super.key,
+      this.onTap,
       required this.text,
       required this.textColor,
       required this.bgColor});
@@ -15,7 +17,7 @@ class CustomButon extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 32),
+        margin: const EdgeInsets.symmetric(horizontal: 32),
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(8),

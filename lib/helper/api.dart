@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -54,6 +55,9 @@ class Api {
     if (token != null) {
       headers.addAll({"Authorization": "Bearer $token"});
     }
+    log("Url = $url");
+    log("token = $token");
+    log("body = $body");
     http.Response response = await http.put(
       Uri.parse(url),
       body: body,
@@ -61,10 +65,11 @@ class Api {
     );
     if (response.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(response.body);
+      log(data.toString());
       return data;
     } else {
       throw Exception(
-          "Status Code Wrong: ${response.statusCode}, Details: ${jsonDecode(response.body)}");
+          "Status Code Wrong: ${response.statusCode}"); //, Details: ${jsonDecode(response.body)}
     }
   }
 }

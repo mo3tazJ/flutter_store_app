@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomFormTextField extends StatelessWidget {
   CustomFormTextField(
-      {this.hintText, this.onChanged, this.obscureText = false});
+      {super.key, this.hintText, this.onChanged, this.obscureText = false});
   Function(String)? onChanged;
   String? hintText;
 
@@ -13,6 +14,7 @@ class CustomFormTextField extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       child: TextFormField(
         obscureText: obscureText!,
+        // ignore: body_might_complete_normally_nullable
         validator: (data) {
           if (data!.isEmpty) {
             return 'field is required';
@@ -25,13 +27,13 @@ class CustomFormTextField extends StatelessWidget {
             color: Colors.grey.shade400,
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey,
             ),
             borderRadius: BorderRadius.circular(8),
           ),
           border: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.black,
             ),
             borderRadius: BorderRadius.circular(8),

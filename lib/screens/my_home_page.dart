@@ -1,10 +1,4 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:store/helper/api.dart';
-import 'package:store/models/product_model.dart';
-import 'package:store/services/get_all_product_service.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -75,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          Future<List<ProductModel>> testo =
-              AllProductsService().getAllProducts();
+          // Future<List<ProductModel>> testo =
+          //     AllProductsService().getAllProducts();
           // List<dynamic> data =
           //     await Api().get(url: "https://fakestoreapi.com/products");
 
@@ -87,8 +81,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // );
           // print(data);
           // ProductModel testo1 = testo[1];
-          print(testo);
-          // log(data);
+
+          // print(testo);
+          // log(testo.toString());
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

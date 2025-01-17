@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
               return GridView.builder(
                 itemCount: products.length,
                 clipBehavior: Clip.none,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 80,

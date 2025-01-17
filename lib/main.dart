@@ -23,9 +23,9 @@ class StoreApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        HomePage.id: (context) => HomePage(),
-        UpdateProductPage.id: (context) => UpdateProductPage(),
-        MyHomePage.id: (context) => MyHomePage(
+        HomePage.id: (context) => const HomePage(),
+        UpdateProductPage.id: (context) => const UpdateProductPage(),
+        MyHomePage.id: (context) => const MyHomePage(
               title: 'MyHomePage',
             ),
       },
